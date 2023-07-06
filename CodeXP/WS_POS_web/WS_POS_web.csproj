@@ -1,0 +1,735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{429F39C2-FC6F-4CAF-9793-1B330BBC815E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WS_POS_web</RootNamespace>
+    <AssemblyName>WS_POS_web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Core">
+      <HintPath>..\Core\bin\Release\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wsPOSweb.asmx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bd.cs" />
+    <Compile Include="Factura.cs" />
+    <Compile Include="clCapaDatos.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsAddUpdCliente\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsGetInfoCliente\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsGetProvCiudParr_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsGetSubramo_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Ampliacion_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_CaractMat\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_CaractMat_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Combos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Combos_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Creacion_Cliente_N\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Creacion_Cliente_N_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Financiamiento\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Financiamiento_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Get_Cliente\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Get_Cliente_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Get_Material\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Get_Material_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Get_Material_Price_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_material_lote_serie_alma\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_material_lote_serie_alma_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_obt_vend\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_obt_vend_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Precios_cep\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Precios_cep_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Precios_Materiales\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="wsPOSweb.asmx.cs">
+      <DependentUpon>wsPOSweb.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\P2.pubxml" />
+    <None Include="Properties\PublishProfiles\PRD.pubxml" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\PRD_RES.pubxml" />
+    <Content Include="Web References\Ws_obt_vend\document.wsdl" />
+    <Content Include="Web References\Ws_obt_vend\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Ws_Get_Cliente_PRD\document.wsdl" />
+    <None Include="Web References\Ws_Get_Cliente_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\Ws_Financiamiento_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Financiamiento_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Financiamiento_PRD\ZestOutItemin.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Financiamiento\document.wsdl" />
+    <Content Include="Web References\Ws_Financiamiento\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Financiamiento\ZestOutItemin.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Get_Cliente\document.wsdl" />
+    <Content Include="Web References\Ws_Get_Cliente\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Creacion_Cliente_N_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Creacion_Cliente_N_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Creacion_Cliente_N\document.wsdl" />
+    <Content Include="Web References\Ws_Creacion_Cliente_N\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Get_Material_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Get_Material_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Get_Material\document.wsdl" />
+    <Content Include="Web References\Ws_Get_Material\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Ampliacion_PRD\Bapiret1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Ampliacion_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Ampliacion_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Combos\document.wsdl" />
+    <Content Include="Web References\Ws_Combos\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Combos\ZestMaterialComboTablet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Combos_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Combos_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Combos_PRD\ZestMaterialComboTablet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Get_Material_Price_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Get_Material_Price_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Get_Material_Price_PRD\Bapiret11.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Get_Material_Price_PRD\Zststockprice1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_CaractMat_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_CaractMat_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_CaractMat\document.wsdl" />
+    <Content Include="Web References\Ws_CaractMat\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_material_lote_serie_alma\Bapiret1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_material_lote_serie_alma\document.wsdl" />
+    <Content Include="Web References\Ws_material_lote_serie_alma\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_material_lote_serie_alma\ZmmMaterialLote.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_material_lote_serie_alma\ZmmMaterialSerie.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_material_lote_serie_alma_PRD\Bapiret1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_material_lote_serie_alma_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_material_lote_serie_alma_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_material_lote_serie_alma_PRD\ZmmMaterialLote.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_material_lote_serie_alma_PRD\ZmmMaterialSerie.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsGetInfoCliente\document.wsdl" />
+    <Content Include="Web References\wsGetInfoCliente\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\wsGetInfoCliente\ZestNpCabCliente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsGetProvCiudParr_PRD\document.wsdl" />
+    <Content Include="Web References\wsGetProvCiudParr_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\wsGetProvCiudParr_PRD\ZstrCantParro.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\wsGetSubramo_PRD\document.wsdl" />
+    <Content Include="Web References\wsGetSubramo_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\wsGetSubramo_PRD\ZsdEstListaSubramo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\wsAddUpdCliente\document.wsdl" />
+    <None Include="Web References\wsAddUpdCliente\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Ws_obt_vend_PRD\document.wsdl" />
+    <None Include="Web References\Ws_obt_vend_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\Ws_Precios_Materiales\document.wsdl" />
+    <Content Include="Web References\Ws_Precios_Materiales\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Precios_Materiales\ZestfiItems.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Precios_cep_PRD\Bapiret1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Precios_cep_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Precios_cep_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Precios_cep_PRD\ZststockpriceTablet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Precios_cep\Bapiret1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Precios_cep\document.wsdl" />
+    <Content Include="Web References\Ws_Precios_cep\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Precios_cep\ZststockpriceTablet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E50C6CF233B1A6F183FF00505691CE1C/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Get_Cliente_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E50C6CF233B1A6F183FF00505691CE1C/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Get_Cliente_PRD_ZSDWS_POS_CONSULTA_CLIENTES</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E50E37F0AC6E05F1B14F00505691CE1C/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_obt_vend_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E50E37F0AC6E05F1B14F00505691CE1C/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_obt_vend_PRD_ZSDWS_POS_CONSULTA_VENDEDORES</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E6B1DA44ACB756F181A6005056A30824/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_material_lote_serie_alma_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E6B1DA44ACB756F181A6005056A30824/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_material_lote_serie_alma_PRD_ZWS_MATERIAL_LOTE_SERIE_ALMA</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E6D397EA790DDDF181A6005056A30824/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Get_Material_Price_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E6D397EA790DDDF181A6005056A30824/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Get_Material__Price_PRD_ZWS_SDNETPR0</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E7A49C675C2278F186C5005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Financiamiento_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E7A49C675C2278F186C5005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Financiamiento_PRD_ZWS_PRECIO_DESC_FINANCIAMIENTO</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E7A5209DA860BDF186C5005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_CaractMat_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E7A5209DA860BDF186C5005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_CaractMat_PRD_ZSD_WS_CARACTERISCITA_MAT</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E7D528D5D24B56F18C02005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Get_Material_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E7D528D5D24B56F18C02005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Get_Material_PRD_ZSDWS_POS_CONSULTA_MATERIAL3</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E8DD0FC839222CF19603005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Ampliacion_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E8DD0FC839222CF19603005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Ampliacion_PRD_ZWS_AMPLIA_CLIENTE_TABLET</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E8FCCBDEC313AEF19E33005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Precios_cep_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E8FCCBDEC313AEF19E33005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Precios_cep_PRD_ZWS_SDNETPR0_CEP</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E8FDA1582001D7F19E33005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Combos_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E8FDA1582001D7F19E33005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Combos_PRD_ZWS_CONSULTA_COMBOS_TABLET</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E9314B0CCFD807F19E34005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Creacion_Cliente_N_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E9314B0CCFD807F19E34005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Creacion_Cliente_N_PRD_ZWS_CREATER_COSTUMER_2010</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_EA62F3CBAF518BF19E4E005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsGetSubramo_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_EA62F3CBAF518BF19E4E005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_wsGetSubramo_PRD_ZWS_LISTA_SUBRAMOS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_ECC1B62B7F3D96F19182005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsGetProvCiudParr_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_ECC1B62B7F3D96F19182005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_wsGetProvCiudParr_PRD_ZWS_CONSULTAR_PROVINCIAS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_E9314B0CCFD807F19E34005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Creacion_Cliente_N\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_E9314B0CCFD807F19E34005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Creacion_Cliente_N_ZWS_CREATER_COSTUMER_2010</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED36119DED866FF199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_CaractMat\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED36119DED866FF199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_CaractMat_ZSD_WS_CARACTERISCITA_MAT</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED382620E9CEAAF199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Get_Material\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED382620E9CEAAF199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Get_Material_ZSDWS_POS_CONSULTA_MATERIAL3</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED3827800BEB35F199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_material_lote_serie_alma\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED3827800BEB35F199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_material_lote_serie_alma_ZWS_MATERIAL_LOTE_SERIE_ALMA</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED3828725098C4F199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_obt_vend\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED3828725098C4F199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_obt_vend_ZSDWS_POS_CONSULTA_VENDEDORES</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E8D64BC67A0C7CF1811D005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsAddUpdCliente\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E8D64BC67A0C7CF1811D005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_wsAddUpdCliente_ZWS_ADD_UPD_CLIENTE</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED3920B21E0D3EF199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Precios_cep\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED3920B21E0D3EF199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Precios_cep_ZWS_SDNETPR0_CEP</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED39D0082A7639F199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Combos\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED39D0082A7639F199DE005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Combos_ZWS_CONSULTA_COMBOS_TABLET</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED4FC7AFEDDE48F1BBD8005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Precios_Materiales\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED4FC7AFEDDE48F1BBD8005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Precios_Materiales_ZWS_ITEMS_VALORES_FACTURAService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED5605CC2F27A6F1BBD8005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Financiamiento\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED5605CC2F27A6F1BBD8005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Financiamiento_ZWS_PRECIO_DESC_FINANCIAMIENTO</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED56E21D3C19ADF1BBD8005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Get_Cliente\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED56E21D3C19ADF1BBD8005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Get_Cliente_ZSDWS_POS_CONSULTA_CLIENTES</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED8C84BE62F410F18F9B005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsGetInfoCliente\</RelPath>
+      <UpdateFromURL>http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED8C84BE62F410F18F9B005056A9D1B9/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_wsGetInfoCliente_ZWS_DATOS_CLIENTE_POSWEBService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60147</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60147/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

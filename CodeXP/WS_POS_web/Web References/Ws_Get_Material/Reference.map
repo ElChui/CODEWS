@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://ajeqas:8000/sap/bc/srt/wsdl/bndg_ED382620E9CEAAF199DE005056A9D1B9/wsdl11/allinone/ws_policy/document?sap-client=400" filename="document.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

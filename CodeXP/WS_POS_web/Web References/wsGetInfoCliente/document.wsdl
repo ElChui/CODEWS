@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n1="urn:sap-com:document:sap:rfc:functions" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl" />
+  </wsdl:documentation>
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="BN_BN_ZWS_DATOS_CLIENTE_POSWEB">
+    <saptrnbnd:OptimizedXMLTransfer uri="http://xml.sap.com/2006/11/esi/esp/binxml" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <saptrnbnd:OptimizedXMLTransfer uri="http://www.w3.org/2004/08/soap/features/http-optimization" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+      <wsp:All>
+        <sp:TransportBinding>
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:HttpBasicAuthentication />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:TripleDesRsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="IF_IF_ZWS_DATOS_CLIENTE_POSWEB">
+    <sapsession:Session xmlns:sapsession="http://www.sap.com/webas/630/soap/features/session/">
+      <sapsession:enableSession>false</sapsession:enableSession>
+    </sapsession:Session>
+    <sapcentraladmin:CentralAdministration xmlns:sapcentraladmin="http://www.sap.com/webas/700/soap/features/CentralAdministration/" wsp:Optional="true">
+      <sapcentraladmin:BusinessApplicationID>E1155BF2E49760F19BF278E3B51A5933</sapcentraladmin:BusinessApplicationID>
+    </sapcentraladmin:CentralAdministration>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZfiDatosClientePos2023">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:simpleType name="char1">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char12">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char15">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="15" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char16">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="16" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char17">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="17" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char2">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char20">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char241">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="241" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char25">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="25" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char3">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char30">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char35">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="35" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char40">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char6">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="6" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char8">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="date">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+          <xsd:pattern value="\d\d\d\d-\d\d-\d\d" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns:n0="urn:sap-com:document:sap:rfc:functions" attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style">
+      <xsd:import namespace="urn:sap-com:document:sap:rfc:functions" />
+      <xsd:complexType name="ZestNpCabCliente">
+        <xsd:sequence>
+          <xsd:element name="CodigoSap" type="n0:char10" />
+          <xsd:element name="CedulaRuc" type="n0:char16" />
+          <xsd:element name="TipoIdentificacion" type="n0:char2" />
+          <xsd:element name="Apellidos" type="n0:char40" />
+          <xsd:element name="Nombres" type="n0:char40" />
+          <xsd:element name="GrpCtaCliente" type="n0:char4" />
+          <xsd:element name="GrupoCliente" type="n0:char2" />
+          <xsd:element name="CodProvincia" type="n0:char3" />
+          <xsd:element name="TextoProvincia" type="n0:char20" />
+          <xsd:element name="Poblacion" type="n0:char12" />
+          <xsd:element name="TextoPoblacion" type="n0:char25" />
+          <xsd:element name="Distrito" type="n0:char8" />
+          <xsd:element name="TextoDistrito" type="n0:char40" />
+          <xsd:element name="Calle" type="n0:char35" />
+          <xsd:element name="Pais" type="n0:char3" />
+          <xsd:element name="CodGenero" type="n0:char1" />
+          <xsd:element name="TextoGenero" type="n0:char10" />
+          <xsd:element name="CodTratamiento" type="n0:char4" />
+          <xsd:element name="TextoTratamiento" type="n0:char30" />
+          <xsd:element name="CodEstadoCivil" type="n0:char1" />
+          <xsd:element name="TextoEstadoCivil" type="n0:char6" />
+          <xsd:element name="ActividadEconomica" type="n0:char2" />
+          <xsd:element name="TextoActEconomica" type="n0:char20" />
+          <xsd:element name="Correo" type="n0:char241" />
+          <xsd:element name="Telefono1" type="n0:char16" />
+          <xsd:element name="Telefono2" type="n0:char16" />
+          <xsd:element name="Deuda" type="n0:char15" />
+          <xsd:element name="CodRamo" type="n0:char4" />
+          <xsd:element name="TextoRamo" type="n0:char20" />
+          <xsd:element name="CodRamo1" type="n0:char10" />
+          <xsd:element name="TextoRamo1" type="n0:char20" />
+          <xsd:element name="BloqCredito" type="n0:char1" />
+          <xsd:element name="FecNacimiento" type="n0:date" />
+          <xsd:element name="LimiteCredito" type="n0:char17" />
+          <xsd:element name="SaldoCliente" type="n0:char17" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ZfiDatosClientePos2023">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="PStcd1" type="n0:char16" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZfiDatosClientePos2023Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ECabCliente" type="tns:ZestNpCabCliente" />
+            <xsd:element name="ESubrc" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ZfiDatosClientePos2023">
+    <wsdl:part name="parameters" element="tns:ZfiDatosClientePos2023" />
+  </wsdl:message>
+  <wsdl:message name="ZfiDatosClientePos2023Response">
+    <wsdl:part name="parameters" element="tns:ZfiDatosClientePos2023Response" />
+  </wsdl:message>
+  <wsdl:portType name="ZWS_DATOS_CLIENTE_POSWEB">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#IF_IF_ZWS_DATOS_CLIENTE_POSWEB" />
+    </wsp:Policy>
+    <wsdl:operation name="ZfiDatosClientePos2023">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZfiDatosClientePos2023" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZfiDatosClientePos2023" />
+      <wsdl:output message="tns:ZfiDatosClientePos2023Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZWS_DATOS_CLIENTE_POSWEB" type="tns:ZWS_DATOS_CLIENTE_POSWEB">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#BN_BN_ZWS_DATOS_CLIENTE_POSWEB" />
+    </wsp:Policy>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZfiDatosClientePos2023">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZWS_DATOS_CLIENTE_POSWEBService">
+    <wsdl:port name="ZWS_DATOS_CLIENTE_POSWEB" binding="tns:ZWS_DATOS_CLIENTE_POSWEB">
+      <soap:address location="http://AJEQAS:8000/sap/bc/srt/rfc/sap/zws_datos_cliente_posweb/400/zws_datos_cliente_posweb/zws_datos_cliente_posweb" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

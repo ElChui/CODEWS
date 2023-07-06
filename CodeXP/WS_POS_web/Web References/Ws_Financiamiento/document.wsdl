@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n1="urn:sap-com:document:sap:rfc:functions" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl" />
+  </wsdl:documentation>
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="BN_BN_ZWS_PRECIO_DESC_FINANCIAMIENTO_BINDING">
+    <saptrnbnd:OptimizedXMLTransfer uri="http://xml.sap.com/2006/11/esi/esp/binxml" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <saptrnbnd:OptimizedXMLTransfer uri="http://www.w3.org/2004/08/soap/features/http-optimization" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+      <wsp:All>
+        <sp:TransportBinding>
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:HttpBasicAuthentication />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:TripleDesRsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="IF_IF_ZWS_PRECIO_DESC_FINANCIAMIENTO">
+    <sapsession:Session xmlns:sapsession="http://www.sap.com/webas/630/soap/features/session/">
+      <sapsession:enableSession>false</sapsession:enableSession>
+    </sapsession:Session>
+    <sapcentraladmin:CentralAdministration xmlns:sapcentraladmin="http://www.sap.com/webas/700/soap/features/CentralAdministration/" wsp:Optional="true">
+      <sapcentraladmin:BusinessApplicationID>E1155BF2E49760F19BF278E3B51A5933</sapcentraladmin:BusinessApplicationID>
+    </sapcentraladmin:CentralAdministration>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZsdrfcPrecioDescFinancia">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:simpleType name="char10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char18">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="18" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char2">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="curr15.2">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="15" />
+          <xsd:fractionDigits value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric13">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="13" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric6">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="6" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns:n0="urn:sap-com:document:sap:rfc:functions" attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style">
+      <xsd:import namespace="urn:sap-com:document:sap:rfc:functions" />
+      <xsd:simpleType name="char3">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="decimal10.5">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="10" />
+          <xsd:fractionDigits value="5" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="decimal15.9">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="15" />
+          <xsd:fractionDigits value="9" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ZestItemin">
+        <xsd:sequence>
+          <xsd:element name="Material" type="n0:char18" />
+          <xsd:element name="Centro" type="n0:char4" />
+          <xsd:element name="Almacen" type="n0:char4" />
+          <xsd:element name="Cantidad" type="n0:numeric13" />
+          <xsd:element name="Desc_--25Manual" type="tns:decimal10.5" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZestOutItemin">
+        <xsd:sequence>
+          <xsd:element name="Posicion" type="n0:numeric6" />
+          <xsd:element name="Material" type="n0:char18" />
+          <xsd:element name="Cantidad" type="n0:numeric13" />
+          <xsd:element name="PrecioBruto" type="n0:curr15.2" />
+          <xsd:element name="Descuento" type="n0:curr15.2" />
+          <xsd:element name="PorcDesc" type="n0:curr15.2" />
+          <xsd:element name="PrecioNeto" type="n0:curr15.2" />
+          <xsd:element name="Impuesto" type="tns:decimal15.9" />
+          <xsd:element name="DescManual" type="n0:curr15.2" />
+          <xsd:element name="PrecioNetoFinal" type="n0:curr15.2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZttItemin">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZestItemin" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZttOutItemin">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZestOutItemin" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ZsdrfcPrecioDescFinancia">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="IAuart" type="n0:char4" />
+            <xsd:element name="IBukrs" type="n0:char4" />
+            <xsd:element minOccurs="0" name="IInco1" type="tns:char3" />
+            <xsd:element name="IItemin" type="tns:ZttItemin" />
+            <xsd:element name="IKunnr" type="n0:char10" />
+            <xsd:element name="ISpart" type="n0:char2" />
+            <xsd:element name="IVkbur" type="n0:char4" />
+            <xsd:element name="IVkorg" type="n0:char4" />
+            <xsd:element name="IVtweg" type="n0:char2" />
+            <xsd:element name="IZterm" type="n0:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZsdrfcPrecioDescFinanciaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OOutItemin" type="tns:ZttOutItemin" />
+            <xsd:element name="OReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ZsdrfcPrecioDescFinancia">
+    <wsdl:part name="parameters" element="tns:ZsdrfcPrecioDescFinancia" />
+  </wsdl:message>
+  <wsdl:message name="ZsdrfcPrecioDescFinanciaResponse">
+    <wsdl:part name="parameters" element="tns:ZsdrfcPrecioDescFinanciaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ZWS_PRECIO_DESC_FINANCIAMIENTO">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#IF_IF_ZWS_PRECIO_DESC_FINANCIAMIENTO" />
+    </wsp:Policy>
+    <wsdl:operation name="ZsdrfcPrecioDescFinancia">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZsdrfcPrecioDescFinancia" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZsdrfcPrecioDescFinancia" />
+      <wsdl:output message="tns:ZsdrfcPrecioDescFinanciaResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZWS_PRECIO_DESC_FINANCIAMIENTO_BINDING" type="tns:ZWS_PRECIO_DESC_FINANCIAMIENTO">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#BN_BN_ZWS_PRECIO_DESC_FINANCIAMIENTO_BINDING" />
+    </wsp:Policy>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZsdrfcPrecioDescFinancia">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZWS_PRECIO_DESC_FINANCIAMIENTO">
+    <wsdl:port name="ZWS_PRECIO_DESC_FINANCIAMIENTO_BINDING" binding="tns:ZWS_PRECIO_DESC_FINANCIAMIENTO_BINDING">
+      <soap:address location="http://AJEQAS:8000/sap/bc/srt/rfc/sap/zws_precio_desc_financiamiento/400/zws_precio_desc_financiamiento/zws_precio_desc_financiamiento_binding" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

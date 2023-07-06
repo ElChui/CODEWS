@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_POS_web", "WS_POS_web\WS_POS_web.csproj", "{429F39C2-FC6F-4CAF-9793-1B330BBC815E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{429F39C2-FC6F-4CAF-9793-1B330BBC815E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{429F39C2-FC6F-4CAF-9793-1B330BBC815E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{429F39C2-FC6F-4CAF-9793-1B330BBC815E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{429F39C2-FC6F-4CAF-9793-1B330BBC815E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
