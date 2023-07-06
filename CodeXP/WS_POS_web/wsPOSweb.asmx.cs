@@ -60,6 +60,8 @@ namespace WS_POS_web
         String ContraSap = ConfigurationManager.AppSettings["ContreSap"];//"W19+25s.";
         String IVA = ConfigurationManager.AppSettings["IVA"];
 
+        String varChui = "";
+
         bool esCorrecto = false;
         int contE = 0;
         int contRepetir = 10;
