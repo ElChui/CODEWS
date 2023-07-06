@@ -61,7 +61,7 @@ namespace WS_POS_web
         String IVA = ConfigurationManager.AppSettings["IVA"];
 
         String varChui = "";
-
+        String varSebas= "HOLA ";
         bool esCorrecto = false;
         int contE = 0;
         int contRepetir = 10;
