@@ -106,5 +106,20 @@ namespace WS_POS_web
 
             return dt;
         }
+
+        //Recupera los códigos de las fundas plásticas
+        public static DataTable getFundasPlasticas()
+        {
+            DataTable dtFundasPlasticas = new DataTable("dtFundasPlasticas");
+            List<SqlParameter> par = new List<SqlParameter>();
+            DataSet ds = new Ws_POS_web.clCapaDatos().ejecutarSP(cadenaConexionPos, "_SP_FUNDAS_PLASTICAS", par);
+
+            if (ds.Tables.Count > 0)
+            {
+                dtFundasPlasticas = ds.Tables[0];
+            }
+
+            return dtFundasPlasticas;
+        }
     }
 }

@@ -20,6 +20,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,6 +66,72 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Web References\Ws_ValidateCreaAccount_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\SapSwQCom_PRD\document.wsdl" />
+    <Content Include="Web References\SapSwQCom_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Ws_Anticipos_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Anticipos_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Anticipos_PRD\ZfiDocAnticipoCliente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Ws_Consulta_GiftCard_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Consulta_GiftCard_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Consulta_GiftCard_PRD\ZesSalGifcard.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Ws_Cuenta_Digitos_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Cuenta_Digitos_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Ws_CupoCliente_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_CupoCliente_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Ws_Get_Clientes_Nombre_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Get_Clientes_Nombre_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Get_Clientes_Nombre_PRD\ZestResultadoClientes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Ws_Recuperar_Factura_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Recuperar_Factura_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Ws_Recuperar_Factura_PRD\ZwsCabeceraFactura.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Recuperar_Factura_PRD\ZwsItemsFactura.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Recuperar_Factura_PRD\ZwsLote.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\Ws_Recuperar_Factura_PRD\ZwsSeries.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\Ws_Set_Factura_Sap_PRD\document.wsdl" />
+    <Content Include="Web References\Ws_Set_Factura_Sap_PRD\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Ws_ValidateCreaAccount_PRD\wsBilletera.disco" />
     <Content Include="wsPOSweb.asmx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -71,12 +139,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bd.cs" />
+    <Compile Include="MetodosComunes.cs" />
     <Compile Include="Factura.cs" />
     <Compile Include="clCapaDatos.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SapSwQCom_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\wsAddUpdCliente\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -103,6 +177,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\Ws_Anticipos_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\Ws_CaractMat\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,6 +202,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\Ws_Consulta_GiftCard_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\Ws_Creacion_Cliente_N\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,12 +217,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\Ws_Cuenta_Digitos_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_CupoCliente_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\Ws_Financiamiento\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\Ws_Financiamiento_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Get_Clientes_Nombre_PRD\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -199,6 +298,21 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\Ws_Precios_Materiales\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Recuperar_Factura_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_Set_Factura_Sap_PRD\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Ws_ValidateCreaAccount_PRD\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -295,11 +409,11 @@
     <Content Include="Web References\Ws_Combos_PRD\ZestMaterialComboTablet.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
-    <Content Include="Web References\Ws_Get_Material_Price_PRD\document.wsdl" />
-    <Content Include="Web References\Ws_Get_Material_Price_PRD\Reference.map">
+    <None Include="Web References\Ws_Get_Material_Price_PRD\document.wsdl" />
+    <None Include="Web References\Ws_Get_Material_Price_PRD\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Web References\Ws_Get_Material_Price_PRD\Bapiret11.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
@@ -408,6 +522,7 @@
     <Content Include="Web References\Ws_Precios_cep\ZststockpriceTablet.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <None Include="Web References\Ws_ValidateCreaAccount_PRD\wsBilletera.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -424,6 +539,28 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://10.10.3.13/wsBilleteraCoopCrea/wsBilletera.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_ValidateCreaAccount_PRD\</RelPath>
+      <UpdateFromURL>http://10.10.3.13/wsBilleteraCoopCrea/wsBilletera.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_ValidateCreaAccount_PRD_MetodosBilletera</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E50C6BF1B7E65DF183FF00505691CE1C/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_CupoCliente_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E50C6BF1B7E65DF183FF00505691CE1C/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_CupoCliente_PRD_ZSDWS_POS_CONSULTA_CUPO_CRED</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E50C6CF233B1A6F183FF00505691CE1C/wsdl11/allinone/ws_policy/document%3fsap-client=400">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Ws_Get_Cliente_PRD\</RelPath>
@@ -446,6 +583,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>WS_POS_web_Ws_obt_vend_PRD_ZSDWS_POS_CONSULTA_VENDEDORES</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E521C0849A3AD3F1BDCE005056916A29/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SapSwQCom_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E521C0849A3AD3F1BDCE005056916A29/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_SapSwQCom_PRD_ZSDWS_POS_CONSULTA_COMBOS</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E6B1DA44ACB756F181A6005056A30824/wsdl11/allinone/ws_policy/document%3fsap-client=400">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Ws_material_lote_serie_alma_PRD\</RelPath>
@@ -467,6 +615,28 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>WS_POS_web_Ws_Get_Material__Price_PRD_ZWS_SDNETPR0</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E777AE9AC3CF14F1A683005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Anticipos_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E777AE9AC3CF14F1A683005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Anticipos_PRD_ZWS_GET_ANTICIPO_CLIENTE</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E78C0CE0120A5AF186C5005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Cuenta_Digitos_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E78C0CE0120A5AF186C5005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Cuenta_Digitos_PRD_ZWS_CONSULTA_BANK</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E7A49C675C2278F186C5005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -500,6 +670,28 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>WS_POS_web_Ws_Get_Material_PRD_ZSDWS_POS_CONSULTA_MATERIAL3</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E7E027B64CB1D1F18C02005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Consulta_GiftCard_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E7E027B64CB1D1F18C02005056A318CD/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Consulta_GiftCard_PRD_ZWS_CONSULTA_GIFCARD</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E88A27955B23AAF1A8DF005056A9FE22/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Recuperar_Factura_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E88A27955B23AAF1A8DF005056A9FE22/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Recuperar_Factura_PRD_ZWS_RECUPERAR_FACTURA_RESUL1</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E8DD0FC839222CF19603005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -545,6 +737,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>WS_POS_web_Ws_Creacion_Cliente_N_PRD_ZWS_CREATER_COSTUMER_2010</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E9614CBCE5D250F19EFF005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Get_Clientes_Nombre_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_E9614CBCE5D250F19EFF005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Get_Clientes_Nombre_PRD_ZDS_BUSCAR_CLIE_NOM</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_EA62F3CBAF518BF19E4E005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\wsGetSubramo_PRD\</RelPath>
@@ -555,6 +758,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>WS_POS_web_wsGetSubramo_PRD_ZWS_LISTA_SUBRAMOS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_ECA15D4D2837ABF189F9005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Ws_Set_Factura_Sap_PRD\</RelPath>
+      <UpdateFromURL>http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_ECA15D4D2837ABF189F9005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WS_POS_web_Ws_Set_Factura_Sap_PRD_ZWS_FACTURACION_POS</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://ajeprd.eljuric.com:8000/sap/bc/srt/wsdl/bndg_ECC1B62B7F3D96F19182005056A948A8/wsdl11/allinone/ws_policy/document%3fsap-client=400">
       <UrlBehavior>Dynamic</UrlBehavior>
