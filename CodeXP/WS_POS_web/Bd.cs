@@ -9,8 +9,9 @@ using System.Configuration;
 namespace WS_POS_web
 {
     class Bd {        
-        static Core.SQL sql = new Core.SQL();       
-     
+        static Core.SQL sql = new Core.SQL();
+        private static string cadenaConexionPos = "Data Source=10.10.3.26;Initial Catalog= SOFTLUTION;User ID= kolado;Password= permiso";
+
         static bool esProduccion = ConfigurationManager.AppSettings["esProduccion"] == "S" ? true : false;
         static string conexionPOSWeb = esProduccion ? "conexionPOSWeb_PRD" : "conexionPOSWeb";
         
