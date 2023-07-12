@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n1="urn:sap-com:document:sap:rfc:functions" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl" />
+  </wsdl:documentation>
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="BN_BN_ZWS_GET_ANTICIPO_CLIENTE_BINDING">
+    <saptrnbnd:OptimizedXMLTransfer uri="http://xml.sap.com/2006/11/esi/esp/binxml" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <saptrnbnd:OptimizedXMLTransfer uri="http://www.w3.org/2004/08/soap/features/http-optimization" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+      <wsp:All>
+        <sp:TransportBinding>
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:HttpBasicAuthentication />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:TripleDesRsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="IF_IF_ZWS_GET_ANTICIPO_CLIENTE">
+    <sapsession:Session xmlns:sapsession="http://www.sap.com/webas/630/soap/features/session/">
+      <sapsession:enableSession>false</sapsession:enableSession>
+    </sapsession:Session>
+    <sapcentraladmin:CentralAdministration xmlns:sapcentraladmin="http://www.sap.com/webas/700/soap/features/CentralAdministration/" wsp:Optional="true">
+      <sapcentraladmin:BusinessApplicationID>E1155BF2E49760F19BF278E3B51A5933</sapcentraladmin:BusinessApplicationID>
+    </sapcentraladmin:CentralAdministration>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZsdrfcGetAnticipoClientes">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:simpleType name="char10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="curr13.2">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="13" />
+          <xsd:fractionDigits value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns:n0="urn:sap-com:document:sap:rfc:functions" attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style">
+      <xsd:import namespace="urn:sap-com:document:sap:rfc:functions" />
+      <xsd:simpleType name="char1">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char3">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="curr7.2">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="7" />
+          <xsd:fractionDigits value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ZfiDocAnticipoCliente">
+        <xsd:sequence>
+          <xsd:element name="Kunnr" type="n0:char10" />
+          <xsd:element name="Belnr" type="n0:char10" />
+          <xsd:element name="Monto" type="n0:curr13.2" />
+          <xsd:element name="Efec" type="tns:curr7.2" />
+          <xsd:element name="Cheq" type="tns:curr7.2" />
+          <xsd:element name="Gift" type="tns:curr7.2" />
+          <xsd:element name="Depo" type="tns:curr7.2" />
+          <xsd:element name="Rete" type="tns:curr7.2" />
+          <xsd:element name="Tcre" type="tns:curr7.2" />
+          <xsd:element name="Tdeb" type="tns:curr7.2" />
+          <xsd:element name="Trans" type="tns:curr7.2" />
+          <xsd:element name="Difer" type="tns:char1" />
+          <xsd:element name="Dias" type="tns:char3" />
+          <xsd:element name="Inter" type="tns:char1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZtfiDocAnticipoCliente">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZfiDocAnticipoCliente" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ZsdrfcGetAnticipoClientes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Wbukrs" type="n0:char4" />
+            <xsd:element name="Wkunnr" type="n0:char10" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZsdrfcGetAnticipoClientesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Return" type="xsd:string" />
+            <xsd:element name="Wanticipo" type="tns:ZtfiDocAnticipoCliente" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ZsdrfcGetAnticipoClientes">
+    <wsdl:part name="parameters" element="tns:ZsdrfcGetAnticipoClientes" />
+  </wsdl:message>
+  <wsdl:message name="ZsdrfcGetAnticipoClientesResponse">
+    <wsdl:part name="parameters" element="tns:ZsdrfcGetAnticipoClientesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ZWS_GET_ANTICIPO_CLIENTE">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#IF_IF_ZWS_GET_ANTICIPO_CLIENTE" />
+    </wsp:Policy>
+    <wsdl:operation name="ZsdrfcGetAnticipoClientes">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZsdrfcGetAnticipoClientes" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZsdrfcGetAnticipoClientes" />
+      <wsdl:output message="tns:ZsdrfcGetAnticipoClientesResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZWS_GET_ANTICIPO_CLIENTE_BINDING" type="tns:ZWS_GET_ANTICIPO_CLIENTE">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#BN_BN_ZWS_GET_ANTICIPO_CLIENTE_BINDING" />
+    </wsp:Policy>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZsdrfcGetAnticipoClientes">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZWS_GET_ANTICIPO_CLIENTE">
+    <wsdl:port name="ZWS_GET_ANTICIPO_CLIENTE_BINDING" binding="tns:ZWS_GET_ANTICIPO_CLIENTE_BINDING">
+      <soap:address location="http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_get_anticipo_cliente/400/zws_get_anticipo_cliente/zws_get_anticipo_cliente_binding" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

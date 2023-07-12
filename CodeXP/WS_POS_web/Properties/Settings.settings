@@ -77,5 +77,32 @@
     <Setting Name="WS_POS_web_wsAddUpdCliente_ZWS_ADD_UPD_CLIENTE" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_add_upd_cliente/400/zws_add_upd_cliente/zws_add_upd_cliente_binding</Value>
     </Setting>
+    <Setting Name="WS_POS_web_Ws_ValidateCreaAccount_PRD_MetodosBilletera" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.10.3.13/wsBilleteraCoopCrea/wsBilletera.asmx</Value>
+    </Setting>
+    <Setting Name="WS_POS_web_Ws_Anticipos_PRD_ZWS_GET_ANTICIPO_CLIENTE" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_get_anticipo_cliente/400/zws_get_anticipo_cliente/zws_get_anticipo_cliente_binding</Value>
+    </Setting>
+    <Setting Name="WS_POS_web_Ws_CupoCliente_PRD_ZSDWS_POS_CONSULTA_CUPO_CRED" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zsdws_pos_consulta_cupo_cred/400/zsdws_pos_consulta_cupo_cred/zsdws_pos_consulta_cupo_cred_binding</Value>
+    </Setting>
+    <Setting Name="WS_POS_web_Ws_Cuenta_Digitos_PRD_ZWS_CONSULTA_BANK" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_consulta_bank/400/zws_consulta_bank/zws_consulta_bank</Value>
+    </Setting>
+    <Setting Name="WS_POS_web_Ws_Consulta_GiftCard_PRD_ZWS_CONSULTA_GIFCARD" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_consulta_gifcard/400/zws_consulta_gifcard/zws_consulta_gifcard_binding</Value>
+    </Setting>
+    <Setting Name="WS_POS_web_Ws_Get_Clientes_Nombre_PRD_ZDS_BUSCAR_CLIE_NOM" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zds_buscar_clie_nom/400/zds_buscar_clie_nom/zds_buscar_clie_nom_binding</Value>
+    </Setting>
+    <Setting Name="WS_POS_web_SapSwQCom_PRD_ZSDWS_POS_CONSULTA_COMBOS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zsdws_pos_consulta_combos/400/zsdws_pos_consulta_combos/zsdws_pos_consulta_combos_binding</Value>
+    </Setting>
+    <Setting Name="WS_POS_web_Ws_Set_Factura_Sap_PRD_ZWS_FACTURACION_POS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_facturacion_pos/400/zws_facturacion_pos/zws_facturacion_pos_binding</Value>
+    </Setting>
+    <Setting Name="WS_POS_web_Ws_Recuperar_Factura_PRD_ZWS_RECUPERAR_FACTURA_RESUL1" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_recuperar_factura_resul1/400/zws_recuperar_factura_resul1/zws_recuperar_factura_resul1_binding</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

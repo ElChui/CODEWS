@@ -9,8 +9,9 @@ using System.Configuration;
 namespace WS_POS_web
 {
     class Bd {        
-        static Core.SQL sql = new Core.SQL();       
-     
+        static Core.SQL sql = new Core.SQL();
+        private static string cadenaConexionPos = "Data Source=10.10.3.26;Initial Catalog= SOFTLUTION;User ID= kolado;Password= permiso";
+
         static bool esProduccion = ConfigurationManager.AppSettings["esProduccion"] == "S" ? true : false;
         static string conexionPOSWeb = esProduccion ? "conexionPOSWeb_PRD" : "conexionPOSWeb";
         
@@ -105,6 +106,21 @@ namespace WS_POS_web
             dt = sql.DT(conexionPOSWeb, "SP_PW_TARJETA_COORDENADAS", pParams);
 
             return dt;
+        }
+
+        //Recupera los códigos de las fundas plásticas
+        public static DataTable getFundasPlasticas()
+        {
+            DataTable dtFundasPlasticas = new DataTable("dtFundasPlasticas");
+            List<SqlParameter> par = new List<SqlParameter>();
+            DataSet ds = new Ws_POS_web.clCapaDatos().ejecutarSP(cadenaConexionPos, "_SP_FUNDAS_PLASTICAS", par);
+
+            if (ds.Tables.Count > 0)
+            {
+                dtFundasPlasticas = ds.Tables[0];
+            }
+
+            return dtFundasPlasticas;
         }
     }
 }

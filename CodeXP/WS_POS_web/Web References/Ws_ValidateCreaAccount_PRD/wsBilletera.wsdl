@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ValidaSocio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sIdentificador" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sValor" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="sReferencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDispositivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPlataforma" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sIpDispositivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCodigoUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Almacen" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaSocioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidaSocioResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidaPing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sReferencia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sPing" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sIpDispositivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCodigoUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Almacen" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaPingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidaPingResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidaSocioSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaSocio" />
+  </wsdl:message>
+  <wsdl:message name="ValidaSocioSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaSocioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidaPingSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaPing" />
+  </wsdl:message>
+  <wsdl:message name="ValidaPingSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaPingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MetodosBilleteraSoap">
+    <wsdl:operation name="ValidaSocio">
+      <wsdl:input message="tns:ValidaSocioSoapIn" />
+      <wsdl:output message="tns:ValidaSocioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaPing">
+      <wsdl:input message="tns:ValidaPingSoapIn" />
+      <wsdl:output message="tns:ValidaPingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MetodosBilleteraSoap" type="tns:MetodosBilleteraSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidaSocio">
+      <soap:operation soapAction="http://tempuri.org/ValidaSocio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaPing">
+      <soap:operation soapAction="http://tempuri.org/ValidaPing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MetodosBilleteraSoap12" type="tns:MetodosBilleteraSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidaSocio">
+      <soap12:operation soapAction="http://tempuri.org/ValidaSocio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaPing">
+      <soap12:operation soapAction="http://tempuri.org/ValidaPing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MetodosBilletera">
+    <wsdl:port name="MetodosBilleteraSoap" binding="tns:MetodosBilleteraSoap">
+      <soap:address location="http://10.10.3.13/wsBilleteraCoopCrea/wsBilletera.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MetodosBilleteraSoap12" binding="tns:MetodosBilleteraSoap12">
+      <soap12:address location="http://10.10.3.13/wsBilleteraCoopCrea/wsBilletera.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

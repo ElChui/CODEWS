@@ -12,7 +12,7 @@ namespace WS_POS_web.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -295,6 +295,104 @@ namespace WS_POS_web.Properties {
         public string WS_POS_web_wsAddUpdCliente_ZWS_ADD_UPD_CLIENTE {
             get {
                 return ((string)(this["WS_POS_web_wsAddUpdCliente_ZWS_ADD_UPD_CLIENTE"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.10.3.13/wsBilleteraCoopCrea/wsBilletera.asmx")]
+        public string WS_POS_web_Ws_ValidateCreaAccount_PRD_MetodosBilletera {
+            get {
+                return ((string)(this["WS_POS_web_Ws_ValidateCreaAccount_PRD_MetodosBilletera"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_get_anticipo_cliente/400/zw" +
+            "s_get_anticipo_cliente/zws_get_anticipo_cliente_binding")]
+        public string WS_POS_web_Ws_Anticipos_PRD_ZWS_GET_ANTICIPO_CLIENTE {
+            get {
+                return ((string)(this["WS_POS_web_Ws_Anticipos_PRD_ZWS_GET_ANTICIPO_CLIENTE"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zsdws_pos_consulta_cupo_cred/40" +
+            "0/zsdws_pos_consulta_cupo_cred/zsdws_pos_consulta_cupo_cred_binding")]
+        public string WS_POS_web_Ws_CupoCliente_PRD_ZSDWS_POS_CONSULTA_CUPO_CRED {
+            get {
+                return ((string)(this["WS_POS_web_Ws_CupoCliente_PRD_ZSDWS_POS_CONSULTA_CUPO_CRED"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_consulta_bank/400/zws_consu" +
+            "lta_bank/zws_consulta_bank")]
+        public string WS_POS_web_Ws_Cuenta_Digitos_PRD_ZWS_CONSULTA_BANK {
+            get {
+                return ((string)(this["WS_POS_web_Ws_Cuenta_Digitos_PRD_ZWS_CONSULTA_BANK"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_consulta_gifcard/400/zws_co" +
+            "nsulta_gifcard/zws_consulta_gifcard_binding")]
+        public string WS_POS_web_Ws_Consulta_GiftCard_PRD_ZWS_CONSULTA_GIFCARD {
+            get {
+                return ((string)(this["WS_POS_web_Ws_Consulta_GiftCard_PRD_ZWS_CONSULTA_GIFCARD"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zds_buscar_clie_nom/400/zds_bus" +
+            "car_clie_nom/zds_buscar_clie_nom_binding")]
+        public string WS_POS_web_Ws_Get_Clientes_Nombre_PRD_ZDS_BUSCAR_CLIE_NOM {
+            get {
+                return ((string)(this["WS_POS_web_Ws_Get_Clientes_Nombre_PRD_ZDS_BUSCAR_CLIE_NOM"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zsdws_pos_consulta_combos/400/z" +
+            "sdws_pos_consulta_combos/zsdws_pos_consulta_combos_binding")]
+        public string WS_POS_web_SapSwQCom_PRD_ZSDWS_POS_CONSULTA_COMBOS {
+            get {
+                return ((string)(this["WS_POS_web_SapSwQCom_PRD_ZSDWS_POS_CONSULTA_COMBOS"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_facturacion_pos/400/zws_fac" +
+            "turacion_pos/zws_facturacion_pos_binding")]
+        public string WS_POS_web_Ws_Set_Factura_Sap_PRD_ZWS_FACTURACION_POS {
+            get {
+                return ((string)(this["WS_POS_web_Ws_Set_Factura_Sap_PRD_ZWS_FACTURACION_POS"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ajeprd.eljuric.com:8000/sap/bc/srt/rfc/sap/zws_recuperar_factura_resul1/40" +
+            "0/zws_recuperar_factura_resul1/zws_recuperar_factura_resul1_binding")]
+        public string WS_POS_web_Ws_Recuperar_Factura_PRD_ZWS_RECUPERAR_FACTURA_RESUL1 {
+            get {
+                return ((string)(this["WS_POS_web_Ws_Recuperar_Factura_PRD_ZWS_RECUPERAR_FACTURA_RESUL1"]));
             }
         }
     }
