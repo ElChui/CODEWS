@@ -14,7 +14,7 @@ namespace WS_POS_web
         static bool esProduccion = ConfigurationManager.AppSettings["esProduccion"] == "S" ? true : false;
         static string conexionPOSWeb = esProduccion ? "conexionPOSWeb_PRD" : "conexionPOSWeb";
         
-        //Retorna los Grupos o Subgrupos
+        //Retorna los elementos de un Subgrupos
         public static DataTable getGrupoSubgrupo(int opcion, string pIdGrupoSubgrupo, string pGruIdentificacion)
         {
             DataTable dt = new DataTable();        
@@ -22,11 +22,31 @@ namespace WS_POS_web
             List<Core.SQL.Parametro> pParams = new List<Core.SQL.Parametro>();
             pParams.Add(new Core.SQL.Parametro("opcion", opcion));
             pParams.Add(new Core.SQL.Parametro("pIdGrupoSubgrupo", pIdGrupoSubgrupo));
-            pParams.Add(new Core.SQL.Parametro("pGruIdentificacion", pGruIdentificacion));
+            pParams.Add(new Core.SQL.Parametro("pGruIdentificacion", pGruIdentificacion));      
 
             dt = sql.DT(conexionPOSWeb, "SP_PW_Get_SubGrupo_PRD", pParams);
            
             return dt;
+        }
+
+        //Retorna un elemento del Subgrupos dado el pIdGrupoSubgrupo del grupo y el pIdGrupoSubgrupo del subgrupo
+        public static int getElementoSubgrupo(string pGruIdentificacion, string pGruIdentificacionSub)
+        {
+            int resultado = 0;
+
+            List<Core.SQL.Parametro> pParams = new List<Core.SQL.Parametro>();
+            pParams.Add(new Core.SQL.Parametro("opcion", 3));   
+            pParams.Add(new Core.SQL.Parametro("pGruIdentificacion", pGruIdentificacion));
+            pParams.Add(new Core.SQL.Parametro("pGruIdentificacionSub", pGruIdentificacionSub));
+
+            DataTable dt = sql.DT(conexionPOSWeb, "SP_PW_Get_SubGrupo_PRD", pParams);
+
+            //Para que no de error, cuando no exista en la tabla de GRUPO_SUBGRUPO
+            if (dt.Rows.Count > 0){
+                resultado = int.Parse(dt.Rows[0]["idGrupoSubgrupo"].ToString());
+            }
+
+            return resultado;
         }
 
         //Consulta, graba o modifica Persona
