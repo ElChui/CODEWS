@@ -58,9 +58,7 @@ namespace WS_POS_web
         String conexionBIN = ConfigurationManager.AppSettings["conexionBIN"];
         String UsuarioSap = ConfigurationManager.AppSettings["UsuarioSap"];//"AJE_WS";
         String ContraSap = ConfigurationManager.AppSettings["ContreSap"];//"W19+25s.";
-        String IVA = ConfigurationManager.AppSettings["IVA"];
-
-        String varChui = "";
+        String IVA = ConfigurationManager.AppSettings["IVA"];       
 
         bool esCorrecto = false;
         int contE = 0;
