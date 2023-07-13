@@ -50,8 +50,6 @@ namespace WS_POS_web
     {
         Boolean produccion = true;
 
-        bool bReto = false;
-
         clCapaDatos confact = new clCapaDatos();
         String Conexion = ConfigurationManager.AppSettings["conexion"];
         String conexionPOS = ConfigurationManager.AppSettings["conexionPOS"];
@@ -60,15 +58,8 @@ namespace WS_POS_web
         String conexionBIN = ConfigurationManager.AppSettings["conexionBIN"];
         String UsuarioSap = ConfigurationManager.AppSettings["UsuarioSap"];//"AJE_WS";
         String ContraSap = ConfigurationManager.AppSettings["ContreSap"];//"W19+25s.";
-<<<<<<< HEAD
-        String IVA = ConfigurationManager.AppSettings["IVA"];       
-
-=======
         String IVA = ConfigurationManager.AppSettings["IVA"];
 
-        String varChui = "";
-        String varSebas= "HOLA BEBE";
->>>>>>> main
         bool esCorrecto = false;
         int contE = 0;
         int contRepetir = 10;
@@ -1725,7 +1716,6 @@ namespace WS_POS_web
             String[] cliente = new string[27];
             DataTable dt = new DataTable("cliente");
 
-<<<<<<< HEAD
             dt.Columns.Add("SAPcod");
             dt.Columns.Add("tipo");                  //Tipo de Cliente (DEMP, FAM1, DRET...)
             dt.Columns.Add("tipoIdentificacion");    //Tipo identificacion (01 -RUC, 02 - Cédula, 03 - Pasaporte)
@@ -1749,37 +1739,7 @@ namespace WS_POS_web
             dt.Columns.Add("fechaNacimiento");
             dt.Columns.Add("nombreProvincia");
             dt.Columns.Add("nombreCiudad");
-                                
-            cliente = getClienteSAP(ide);
-              
-            if (cliente[0] == "0"){
-                DataRow fila = dt.NewRow();
-                fila["SAPcod"] = cliente[1];
-                fila["tipo"] = cliente[2];
-                fila["tipoIdentificacion"] = cliente[4];
-                fila["ide"] = cliente[5];
-                fila["nombre"] = cliente[7] + " " + cliente[6];
-                fila["provincia"] = cliente[8];
-                fila["ciudad"] = cliente[9];
-                fila["parroquia"] = cliente[10];
-                fila["direccion"] = cliente[11];
-                fila["genero"] = cliente[14];
-                fila["tratamiento"] = cliente[15];
-                fila["estadoCivil"] = cliente[16];
-                fila["actividadEconomica"] = cliente[17];
-                fila["mail"] = cliente[18];
-                fila["tel1"] = cliente[19];
-                fila["tel2"] = cliente[20];
-                fila["cupoCredito"] = cliente[21];
-                fila["ramo"] = cliente[22];
-                fila["subramo"] = cliente[23];
-                fila["bloqueadoVentaCredito"] = cliente[24];
-                //fila["fechaNacimiento"] = cliente[25];
-                fila["nombreProvincia"] = cliente[25];
-                fila["nombreCiudad"] = cliente[26];
-                dt.Rows.Add(fila);
-            }           
-=======
+
             if (produccion) //SI ES PRODUCCIÓN
             {
                 Ws_Get_Cliente_PRD.ZSDWS_POS_CONSULTA_CLIENTES clie = new Ws_Get_Cliente_PRD.ZSDWS_POS_CONSULTA_CLIENTES();
@@ -1787,26 +1747,30 @@ namespace WS_POS_web
                 String[] cliente = clie.ZsdrfcPosConsultaCliente(ide).Split('|');
                 if (cliente[0] == "0")
                 {
-                    dt.Columns.Add("SAPcod");
-                    dt.Columns.Add("tipo");
-                    dt.Columns.Add("ide");
-                    dt.Columns.Add("nombre");
-                    dt.Columns.Add("direccion");
-                    dt.Columns.Add("mail");
-                    dt.Columns.Add("tel1");
-                    dt.Columns.Add("tel2");
-                    dt.Columns.Add("cupoCredito");
-
                     DataRow fila = dt.NewRow();
                     fila["SAPcod"] = cliente[1];
                     fila["tipo"] = cliente[2];
+                    fila["tipoIdentificacion"] = cliente[4];
                     fila["ide"] = cliente[5];
                     fila["nombre"] = cliente[7] + " " + cliente[6];
+                    fila["provincia"] = cliente[8];
+                    fila["ciudad"] = cliente[9];
+                    fila["parroquia"] = cliente[10];
                     fila["direccion"] = cliente[11];
+                    fila["genero"] = cliente[14];
+                    fila["tratamiento"] = cliente[15];
+                    fila["estadoCivil"] = cliente[16];
+                    fila["actividadEconomica"] = cliente[17];
                     fila["mail"] = cliente[18];
                     fila["tel1"] = cliente[19];
                     fila["tel2"] = cliente[20];
                     fila["cupoCredito"] = cliente[21];
+                    fila["ramo"] = cliente[22];
+                    fila["subramo"] = cliente[23];
+                    fila["bloqueadoVentaCredito"] = cliente[24];
+                    //fila["fechaNacimiento"] = cliente[25];
+                    fila["nombreProvincia"] = cliente[25];
+                    fila["nombreCiudad"] = cliente[26];
                     dt.Rows.Add(fila);
                 }
             }
@@ -1818,63 +1782,17 @@ namespace WS_POS_web
                     clie.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
                     String[] cliente = clie.ZsdrfcPosConsultaCliente(ide).Split('|');
                     if (cliente[0] == "0")
-                    {
-                        dt.Columns.Add("codError");
-                        dt.Columns.Add("SAPcod");
-                        dt.Columns.Add("tipo"); //GRUPO CLIENTE
-                        dt.Columns.Add("numIdFiscalSuplementario");
-                        dt.Columns.Add("tipoIdentificacion");
-                        dt.Columns.Add("ide");
-                        dt.Columns.Add("nombre");
-                        dt.Columns.Add("region");
-                        dt.Columns.Add("poblacion");
-                        dt.Columns.Add("distrito");
-                        dt.Columns.Add("direccion");
-                        dt.Columns.Add("nacionalidad");
-                        dt.Columns.Add("idioma");
-                        dt.Columns.Add("genero");
-                        dt.Columns.Add("tratamiento");
-                        dt.Columns.Add("estadoCivil");
-                        dt.Columns.Add("actividadEconomica");
-                        dt.Columns.Add("mail");
-                        dt.Columns.Add("tel1");
-                        dt.Columns.Add("tel2");
-                        dt.Columns.Add("cupoCredito");
-                        dt.Columns.Add("ramo");
-                        dt.Columns.Add("subramo");
-                        dt.Columns.Add("estaBloqueado");
-                        dt.Columns.Add("fechaNacimiento");
-                        dt.Columns.Add("provincia");
-                        dt.Columns.Add("ciudad");
-
+                    {                     
                         DataRow fila = dt.NewRow();
-                        fila["codError"] = cliente[0];
                         fila["SAPcod"] = cliente[1];
                         fila["tipo"] = cliente[2];
-                        fila["numIdFiscalSuplementario"] = cliente[3];
-                        fila["tipoIdentificacion"] = cliente[4];
                         fila["ide"] = cliente[5];
                         fila["nombre"] = cliente[7] + " " + cliente[6];
-                        fila["region"] = cliente[8];
-                        fila["poblacion"] = cliente[9];
-                        fila["distrito"] = cliente[10];
                         fila["direccion"] = cliente[11];
-                        fila["nacionalidad"] = cliente[12];
-                        fila["idioma"] = cliente[13];
-                        fila["genero"] = cliente[14];
-                        fila["tratamiento"] = cliente[15];
-                        fila["estadoCivil"] = cliente[16];
-                        fila["actividadEconomica"] = cliente[17];
                         fila["mail"] = cliente[18];
                         fila["tel1"] = cliente[19];
                         fila["tel2"] = cliente[20];
                         fila["cupoCredito"] = cliente[21];
-                        fila["ramo"] = cliente[22];
-                        fila["subramo"] = cliente[23];
-                        fila["estaBloqueado"] = cliente[24];
-                        fila["fechaNacimiento"] = cliente[25];
-                        fila["provincia"] = cliente[26];
-                        fila["ciudad"] = cliente[27];
                         dt.Rows.Add(fila);
                     }
                 }
@@ -1882,158 +1800,6 @@ namespace WS_POS_web
                 {
                     String error = "error";
                 }
-            }
->>>>>>> main
-
-            return dt;
-        }
-
-        [WebMethod]
-        public String cupoCliente(String cedCliente)
-        {
-            String respuesta = "";
-
-            if (produccion) //SI ES PRODUCCIÓN
-            {
-                Ws_CupoCliente_PRD.ZSDWS_POS_CONSULTA_CUPO_CRED cupo = new Ws_CupoCliente_PRD.ZSDWS_POS_CONSULTA_CUPO_CRED();
-                cupo.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
-                respuesta = cupo.ZsdrfcPosConsultaCupoCred(cedCliente);
-            }
-            else //SI ES CALIDAD
-            {
-                Ws_CupoCliente_PRD.ZSDWS_POS_CONSULTA_CUPO_CRED cupo = new Ws_CupoCliente_PRD.ZSDWS_POS_CONSULTA_CUPO_CRED();
-                cupo.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
-                respuesta = cupo.ZsdrfcPosConsultaCupoCred(cedCliente);
-            }
-
-            return respuesta;
-        }
-
-        [WebMethod]
-        public String comprobarCuenta(String cuenta, String tipo)
-        {
-            String numCuenta = "";
-            String viaPago = "";
-            if (produccion) // SI ES PRODUCCION
-            {
-                Ws_Cuenta_Digitos_PRD.ZWS_CONSULTA_BANK digitos = new Ws_Cuenta_Digitos_PRD.ZWS_CONSULTA_BANK();
-                digitos.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
-                digitos.ZrfcConsultaBank(cuenta, tipo, out numCuenta, out viaPago);
-            }
-            else // SI ES CALIDAD
-            {
-                Ws_Cuenta_Digitos_PRD.ZWS_CONSULTA_BANK digitos = new Ws_Cuenta_Digitos_PRD.ZWS_CONSULTA_BANK();
-                digitos.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
-                digitos.ZrfcConsultaBank(cuenta, tipo, out numCuenta, out viaPago);
-            }
-
-            if (!numCuenta.Equals(""))
-                return "0" + ";" + numCuenta + ";" + viaPago;
-            else
-                return "4";
-        }
-
-        [WebMethod]
-        public DataTable consultaGiftCard(string pSerie, string pArticulo, string pDetallado, string pAlmacenSap)
-        {
-            DataTable dt = new DataTable("datos");
-            dt.Columns.Add("codigoArticulo");
-            dt.Columns.Add("serieArticulo");
-            dt.Columns.Add("descripcionTarjeta");
-            dt.Columns.Add("montoTarjeta");
-            dt.Columns.Add("saldoTarjeta");
-            dt.Columns.Add("sociedad");
-            dt.Columns.Add("oficinaVenta");
-            dt.Columns.Add("centro");
-            dt.Columns.Add("estadoTarjeta");
-
-            if (produccion) //Cuando es PRODUCCION
-            {
-                Ws_Consulta_GiftCard_PRD.ZWS_CONSULTA_GIFCARD swConsultaGiftCard = new Ws_Consulta_GiftCard_PRD.ZWS_CONSULTA_GIFCARD(); //CALIDAD 
-                swConsultaGiftCard.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
-
-                Ws_Consulta_GiftCard_PRD.ZesSalGifcard[] resultado;
-
-                string[] res = swConsultaGiftCard.ZrfcConsultaGifcard(pDetallado, pAlmacenSap, pArticulo, pSerie, out resultado).Split('|');
-
-                for (int i = 0; i < resultado.Count(); i++)
-                {
-                    DataRow fila = dt.NewRow();
-
-                    fila["codigoArticulo"] = resultado[i].Matnr;
-                    fila["serieArticulo"] = resultado[i].Sernr;
-                    fila["descripcionTarjeta"] = resultado[i].Maktx;
-                    fila["montoTarjeta"] = resultado[i].Zmonto.ToString().Replace(",", ".");
-                    fila["saldoTarjeta"] = resultado[i].Zsaldo.ToString().Replace(",", ".");
-                    fila["sociedad"] = resultado[i].Bukrs;
-                    fila["oficinaVenta"] = resultado[i].Vkbur;
-                    fila["centro"] = resultado[i].Werks;
-                    fila["estadoTarjeta"] = resultado[i].Zestado;
-
-                    dt.Rows.Add(fila);
-                }
-
-            }
-            else //Cuando es CALIDAD 
-            {
-                Ws_Consulta_GiftCard_PRD.ZWS_CONSULTA_GIFCARD swConsultaGiftCard = new Ws_Consulta_GiftCard_PRD.ZWS_CONSULTA_GIFCARD(); //CALIDAD 
-                swConsultaGiftCard.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
-
-                Ws_Consulta_GiftCard_PRD.ZesSalGifcard[] resultado;
-
-                string[] res = swConsultaGiftCard.ZrfcConsultaGifcard(pDetallado, pAlmacenSap, pArticulo, pSerie, out resultado).Split('|');
-
-                for (int i = 0; i < resultado.Count(); i++)
-                {
-                    DataRow fila = dt.NewRow();
-
-                    fila["codigoArticulo"] = resultado[i].Matnr;
-                    fila["serieArticulo"] = resultado[i].Sernr;
-                    fila["descripcionTarjeta"] = resultado[i].Maktx;
-                    fila["montoTarjeta"] = resultado[i].Zmonto.ToString().Replace(",", ".");
-                    fila["saldoTarjeta"] = resultado[i].Zsaldo.ToString().Replace(",", ".");
-                    fila["sociedad"] = resultado[i].Bukrs;
-                    fila["oficinaVenta"] = resultado[i].Vkbur;
-                    fila["centro"] = resultado[i].Werks;
-                    fila["estadoTarjeta"] = resultado[i].Zestado;
-
-                    dt.Rows.Add(fila);
-                }
-            }
-
-
-            //Validar si la giftcard no se encuentra en la tabla T_GIFTCARD. Si se encuentra aquí, esta aún no
-            //se procesa el recaudo para la factura. Por lo tanto, se cambia el estado a 0 (INACTIVA)
-            if (dt.Rows.Count > 0)
-            {
-
-                List<SqlParameter> fact = new List<SqlParameter>()
-                            {
-                                 new SqlParameter() {ParameterName = "@pCodigoGift",Value= pArticulo},
-                                 new SqlParameter() {ParameterName = "@pSerieGift", Value = pSerie}
-
-                             };
-                try
-                {
-                    DataSet ds = confact.ejecutarSP(conexionPOS, "_SP_BUSCAR_GIFT_CARD", fact);
-
-                    if (ds.Tables[0].Rows.Count > 0)
-                    {
-                        foreach (DataRow currentRow in dt.Rows)
-                        {
-                            currentRow.BeginEdit();
-                            currentRow["estadoTarjeta"] = "0";
-
-                            currentRow.EndEdit();
-                        }
-                    }
-
-                }
-                catch (Exception e)
-                {
-
-                }
-
             }
 
             return dt;
@@ -4214,11 +3980,8 @@ namespace WS_POS_web
 
         #endregion
 
-<<<<<<< HEAD
-=======
         #endregion
 
->>>>>>> main
         #region <<CHUI>>
 
         //bool esCorrecto = false;
@@ -4226,7 +3989,6 @@ namespace WS_POS_web
         //int contRepetir = 10;
         //string solicitudCancelada = "Anulada la solicitud: La solicitud fue cancelada";        
 
-<<<<<<< HEAD
         [WebMethod]
         public string[] getClienteSAP(String ide)
         {
@@ -4261,9 +4023,6 @@ namespace WS_POS_web
         }
 
         //Recupera provincias, ciudades y parroquias SAP
-=======
-        //Recupera provincias, ciudades y parroquias
->>>>>>> main
         [WebMethod]
         public DataTable GetProvCiudParr(String esProduccion, String provincia, String ciudad, String parroquia)
         {
