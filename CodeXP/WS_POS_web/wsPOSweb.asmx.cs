@@ -50,6 +50,8 @@ namespace WS_POS_web
     {
         Boolean produccion = true;
 
+        bool bReto = false;
+
         clCapaDatos confact = new clCapaDatos();
         String Conexion = ConfigurationManager.AppSettings["conexion"];
         String conexionPOS = ConfigurationManager.AppSettings["conexionPOS"];
@@ -58,7 +60,9 @@ namespace WS_POS_web
         String conexionBIN = ConfigurationManager.AppSettings["conexionBIN"];
         String UsuarioSap = ConfigurationManager.AppSettings["UsuarioSap"];//"AJE_WS";
         String ContraSap = ConfigurationManager.AppSettings["ContreSap"];//"W19+25s.";
-        String IVA = ConfigurationManager.AppSettings["IVA"];
+        String IVA = ConfigurationManager.AppSettings["IVA"];       
+
+        String varChui = "";
 
         bool esCorrecto = false;
         int contE = 0;
@@ -3979,16 +3983,14 @@ namespace WS_POS_web
         }
 
         #endregion
-
-        #endregion
-
+    
         #region <<CHUI>>
 
         //bool esCorrecto = false;
         //int contE = 0;
         //int contRepetir = 10;
         //string solicitudCancelada = "Anulada la solicitud: La solicitud fue cancelada";        
-
+       
         [WebMethod]
         public string[] getClienteSAP(String ide)
         {
@@ -4022,7 +4024,7 @@ namespace WS_POS_web
             return cliente;
         }
 
-        //Recupera provincias, ciudades y parroquias SAP
+        //Recupera provincias, ciudades y parroquias
         [WebMethod]
         public DataTable GetProvCiudParr(String esProduccion, String provincia, String ciudad, String parroquia)
         {
