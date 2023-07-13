@@ -60,10 +60,15 @@ namespace WS_POS_web
         String conexionBIN = ConfigurationManager.AppSettings["conexionBIN"];
         String UsuarioSap = ConfigurationManager.AppSettings["UsuarioSap"];//"AJE_WS";
         String ContraSap = ConfigurationManager.AppSettings["ContreSap"];//"W19+25s.";
+<<<<<<< HEAD
+        String IVA = ConfigurationManager.AppSettings["IVA"];       
+
+=======
         String IVA = ConfigurationManager.AppSettings["IVA"];
 
         String varChui = "";
         String varSebas= "HOLA BEBE";
+>>>>>>> main
         bool esCorrecto = false;
         int contE = 0;
         int contRepetir = 10;
@@ -1717,9 +1722,64 @@ namespace WS_POS_web
         [WebMethod]
         public DataTable getCliente(String ide)
         {
-
+            String[] cliente = new string[27];
             DataTable dt = new DataTable("cliente");
 
+<<<<<<< HEAD
+            dt.Columns.Add("SAPcod");
+            dt.Columns.Add("tipo");                  //Tipo de Cliente (DEMP, FAM1, DRET...)
+            dt.Columns.Add("tipoIdentificacion");    //Tipo identificacion (01 -RUC, 02 - Cédula, 03 - Pasaporte)
+            dt.Columns.Add("ide");                   //Identificación del cliente
+            dt.Columns.Add("nombre");
+            dt.Columns.Add("provincia");
+            dt.Columns.Add("ciudad");
+            dt.Columns.Add("parroquia");
+            dt.Columns.Add("direccion");
+            dt.Columns.Add("genero");
+            dt.Columns.Add("tratamiento");
+            dt.Columns.Add("estadoCivil");
+            dt.Columns.Add("actividadEconomica");
+            dt.Columns.Add("mail");
+            dt.Columns.Add("tel1");
+            dt.Columns.Add("tel2");
+            dt.Columns.Add("cupoCredito");           //Deuda (Si excede límite de crédito)
+            dt.Columns.Add("ramo");
+            dt.Columns.Add("subramo");
+            dt.Columns.Add("bloqueadoVentaCredito"); //S -> BloqueadoN -> Desbloqueado
+            dt.Columns.Add("fechaNacimiento");
+            dt.Columns.Add("nombreProvincia");
+            dt.Columns.Add("nombreCiudad");
+                                
+            cliente = getClienteSAP(ide);
+              
+            if (cliente[0] == "0"){
+                DataRow fila = dt.NewRow();
+                fila["SAPcod"] = cliente[1];
+                fila["tipo"] = cliente[2];
+                fila["tipoIdentificacion"] = cliente[4];
+                fila["ide"] = cliente[5];
+                fila["nombre"] = cliente[7] + " " + cliente[6];
+                fila["provincia"] = cliente[8];
+                fila["ciudad"] = cliente[9];
+                fila["parroquia"] = cliente[10];
+                fila["direccion"] = cliente[11];
+                fila["genero"] = cliente[14];
+                fila["tratamiento"] = cliente[15];
+                fila["estadoCivil"] = cliente[16];
+                fila["actividadEconomica"] = cliente[17];
+                fila["mail"] = cliente[18];
+                fila["tel1"] = cliente[19];
+                fila["tel2"] = cliente[20];
+                fila["cupoCredito"] = cliente[21];
+                fila["ramo"] = cliente[22];
+                fila["subramo"] = cliente[23];
+                fila["bloqueadoVentaCredito"] = cliente[24];
+                //fila["fechaNacimiento"] = cliente[25];
+                fila["nombreProvincia"] = cliente[25];
+                fila["nombreCiudad"] = cliente[26];
+                dt.Rows.Add(fila);
+            }           
+=======
             if (produccion) //SI ES PRODUCCIÓN
             {
                 Ws_Get_Cliente_PRD.ZSDWS_POS_CONSULTA_CLIENTES clie = new Ws_Get_Cliente_PRD.ZSDWS_POS_CONSULTA_CLIENTES();
@@ -1823,6 +1883,7 @@ namespace WS_POS_web
                     String error = "error";
                 }
             }
+>>>>>>> main
 
             return dt;
         }
@@ -4153,8 +4214,11 @@ namespace WS_POS_web
 
         #endregion
 
+<<<<<<< HEAD
+=======
         #endregion
 
+>>>>>>> main
         #region <<CHUI>>
 
         //bool esCorrecto = false;
@@ -4162,7 +4226,44 @@ namespace WS_POS_web
         //int contRepetir = 10;
         //string solicitudCancelada = "Anulada la solicitud: La solicitud fue cancelada";        
 
+<<<<<<< HEAD
+        [WebMethod]
+        public string[] getClienteSAP(String ide)
+        {
+            String[] cliente = new string[27];
+
+            if (produccion){ //SI ES PRODUCCIÓN
+
+                Ws_Get_Cliente_PRD.ZSDWS_POS_CONSULTA_CLIENTES clie = new Ws_Get_Cliente_PRD.ZSDWS_POS_CONSULTA_CLIENTES();
+                clie.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
+
+                esCorrecto = false;
+                contE = 0;
+                do{
+                    try{
+                        clie.Timeout = -1; //CHUI Agregado para maximizar el tiempo de espera del servicio
+                        cliente = clie.ZsdrfcPosConsultaCliente(ide).Split('|');
+
+                        esCorrecto = true;
+                    }catch (Exception ex){
+                        if (ex.Message.Contains(solicitudCancelada)){
+                            esCorrecto = false;
+                        }
+                    }
+                    contE++;
+                } while (!esCorrecto && contE < contRepetir);
+                
+            }else{ //SI ES CALIDAD
+               
+            }
+
+            return cliente;
+        }
+
+        //Recupera provincias, ciudades y parroquias SAP
+=======
         //Recupera provincias, ciudades y parroquias
+>>>>>>> main
         [WebMethod]
         public DataTable GetProvCiudParr(String esProduccion, String provincia, String ciudad, String parroquia)
         {
@@ -4281,23 +4382,38 @@ namespace WS_POS_web
             }            
         }
 
-        //Recupera los Subramos        
+        //Recupera los Subramos SAP         
         [WebMethod]
         public DataTable getSubramos(String esProduccion)
         {            
             DataTable dt = new DataTable("dtSubramos");
 
+            dt.Columns.Add("id", typeof(string));
+            dt.Columns.Add("descripcion", typeof(string));
+
             if (esProduccion == "S"){ //Cuando es PRODUCCION
                 wsGetSubramo_PRD.ZWS_LISTA_SUBRAMOS serv = new wsGetSubramo_PRD.ZWS_LISTA_SUBRAMOS();
-                serv.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);                                                                
+                serv.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
+
+                wsGetSubramo_PRD.ZsdEstListaSubramo[] listaSubramo = new wsGetSubramo_PRD.ZsdEstListaSubramo[0];
 
                 try{
-                    serv.Timeout = -1; //CHUI Agregado para maximizar el tiempo de espera del servicio
-                    wsGetSubramo_PRD.ZsdEstListaSubramo[] listaSubramo = serv.ZsdrfcListaSubramos();                                  
+                    esCorrecto = false; 
+                    contE = 0;
+                    do{
+                        try{
+                            serv.Timeout = -1; //CHUI Agregado para maximizar el tiempo de espera del servicio
+                            listaSubramo = serv.ZsdrfcListaSubramos();
 
-                    dt.Columns.Add("id", typeof(string));
-                    dt.Columns.Add("descripcion", typeof(string));                    
-
+                            esCorrecto = true;                            
+                        }catch (Exception ex){                       
+                            if (ex.Message.Contains(solicitudCancelada)){
+                                esCorrecto = false;
+                            }                                                                
+                        }
+                        contE++;
+                    } while (!esCorrecto && contE < contRepetir);
+                                                                                              
                     for (int i = 0; i < listaSubramo.Count(); i++)
                     {
                         DataRow fila = dt.NewRow();
@@ -4309,26 +4425,7 @@ namespace WS_POS_web
                    
                 }               
             }else{ //Cuando es CALIDAD
-                //wsGetSubramo.ZWS_LISTA_SUBRAMOS serv = new wsGetSubramo.ZWS_LISTA_SUBRAMOS();
-                //serv.Credentials = new System.Net.NetworkCredential(pUser, pPass);                                                                
-
-                //try{
-                //    serv.Timeout = -1; //CHUI Agregado para maximizar el tiempo de espera del servicio
-                //    wsGetSubramo.ZsdEstListaSubramo[] listaSubramo = serv.ZsdrfcListaSubramos();                                  
-
-                //    dt.Columns.Add("id", typeof(string));
-                //    dt.Columns.Add("descripcion", typeof(string));                    
-
-                //    for (int i = 0; i < listaSubramo.Count(); i++)
-                //    {
-                //        DataRow fila = dt.NewRow();
-                //        fila["id"] = listaSubramo[i].Braco;
-                //        fila["descripcion"] = listaSubramo[i].Vtext;
-                //        dt.Rows.Add(fila);
-                //    }                  
-                //}catch (Exception err){
-                   
-                //}                
+                          
             }
             return dt;
         }
@@ -4468,31 +4565,60 @@ namespace WS_POS_web
             dtResultado.Rows.Add(drResultado);
 
             return dtResultado;
-        }        
+        }
 
-        //Consulta persona en SAP y en la BD
+        //Consulta persona en BD y SAP
         [WebMethod]
-        public DataTable getPersona(string pPerIdentificacion){                      
+        public DataTable getPersona(string pPerIdentificacion) {
 
-            DataTable dtCliente = new DataTable("cliente");
-            DataTable dt = new DataTable("dtPersona");
+            string[] cliente = new string[27];            
+            DataTable dt = new DataTable("dtPersona");                          
 
-            dtCliente = getCliente(pPerIdentificacion);
-            if (dtCliente.Rows.Count == 0){
+            cliente = getClienteSAP(pPerIdentificacion);
+
+            if (cliente[0].ToString() != "0"){ //Cliente no existe en SAP
                 pPerIdentificacion = "0000000000";
             }
 
             dt = Bd.spPersona(2, pPerIdentificacion, "", "", "", "", "", "", "", "", "", "","","", "", "", "", "", null, null, null, null, null, null, null);
                
-            if (dtCliente.Rows.Count > 0){           
-                dt.Rows[0]["perRamo"] = dtCliente.Rows[0]["ramo"];
-                dt.Rows[0]["perSubramo"] = dtCliente.Rows[0]["subramo"];
+            if (cliente[0].ToString() == "0"){
+
+                DataRow fila = dt.NewRow();
+                if (dt.Rows.Count == 0){
+                    fila["perIdentificacion"] = cliente[5].ToString();
+                    fila["perNombres"] = cliente[7].ToString();
+                    fila["perApellidos"] = cliente[6].ToString();
+                    fila["perDireccion"] = cliente[11].ToString();
+                    fila["perTelefono"] = cliente[20].ToString();
+                    fila["perCelular"] = cliente[19].ToString();
+                    fila["perEmail"] = cliente[18].ToString();
+                    fila["perFechaNacimiento"] = "01/01/1900"; //TODO: SAP aún no retorna fecha de nacimiento
+                    fila["perProvincia"] = cliente[8].ToString();
+                    fila["perCanton"] = cliente[9].Length >= 2 ? cliente[9].Substring(cliente[9].Length - 2, 2) : cliente[9];
+                    fila["perParroquia"] = cliente[10].Length >= 2 ? cliente[10].Substring(cliente[10].Length - 2, 2) : cliente[10];
+                    fila["perCodigoSAP"] = cliente[1].ToString();
+                    fila["perObservacion"] = "";
+                    fila["idGruSubGenero"] = Bd.getElementoSubgrupo("GENERO",cliente[14].ToString());
+                    fila["idGruSubEstadoCivil"] = Bd.getElementoSubgrupo("ESTADO CIVIL", cliente[16].ToString());
+                    fila["idGruSubTratamiento"] = Bd.getElementoSubgrupo("TRATAMIENTO", cliente[15].ToString());
+                    fila["idGruSubActividadEc"] = Bd.getElementoSubgrupo("ACTIVIDAD ECONO", cliente[17].ToString());
+                    fila["idGruSubTipoIdentificacion"] = Bd.getElementoSubgrupo("TIPO IDENTIFICA", cliente[4].ToString());
+                    fila["idGruSubGrupoCliente"] = "29"; //RETAIL
+                    fila["idGruSubGrupoCuenta"] = "32";  //CLIENTE RETAIL AJE
+                    fila["perDireccion2"] = "";
+
+                    dt.Rows.Add(fila);
+                }
+
+                dt.Rows[0]["perRamo"] = cliente[22].ToString();
+                dt.Rows[0]["perSubramo"] = cliente[23].ToString();
             }
                    
             return dt;
         }
 
-        //Consulta la coordenada (LLave - Valor)
+        //Consulta la coordenada (LLave - Valor) en BD
         [WebMethod]
         public DataTable getTarjetaCoordenadas()
         {
@@ -4501,135 +4627,8 @@ namespace WS_POS_web
             dt = Bd.spTarjetaCoordenadas();
 
             return dt;
-        }
-
-
-        //Recupera información del cliente TODAVIA NO SE UTILIZA
-        [WebMethod]
-        public DataSet GetInfoCliente(string idCliente)
-        {
-            int salida = 0;
-            string error = "";
-
-            DataSet dsCliente = new DataSet("dsCliente");
-
-            DataTable dtInfoCliente = new DataTable("dtInfoCliente");
-            dtInfoCliente.Columns.Add("actividadEconomica", typeof(string));
-            dtInfoCliente.Columns.Add("apellidos", typeof(string));
-            dtInfoCliente.Columns.Add("bloqCredito", typeof(string));
-            dtInfoCliente.Columns.Add("calle", typeof(string));
-            dtInfoCliente.Columns.Add("cedulaRuc", typeof(string));
-            dtInfoCliente.Columns.Add("codEstadoCivil", typeof(string));
-            dtInfoCliente.Columns.Add("codGenero", typeof(string));
-            dtInfoCliente.Columns.Add("codigoSap", typeof(string));
-            dtInfoCliente.Columns.Add("codProvincia", typeof(string));
-            dtInfoCliente.Columns.Add("codRamo", typeof(string));
-            dtInfoCliente.Columns.Add("codRamo1", typeof(string));
-            dtInfoCliente.Columns.Add("codTratamiento", typeof(string));
-            dtInfoCliente.Columns.Add("correo", typeof(string));
-            dtInfoCliente.Columns.Add("deuda", typeof(string));
-            dtInfoCliente.Columns.Add("distrito", typeof(string));
-            dtInfoCliente.Columns.Add("fecNacimiento", typeof(string));
-            dtInfoCliente.Columns.Add("grpCtaCliente", typeof(string));
-            dtInfoCliente.Columns.Add("grupoCliente", typeof(string));
-            dtInfoCliente.Columns.Add("limiteCredito", typeof(string));
-            dtInfoCliente.Columns.Add("nombres", typeof(string));
-            dtInfoCliente.Columns.Add("pais", typeof(string));
-            dtInfoCliente.Columns.Add("poblacion", typeof(string));
-            dtInfoCliente.Columns.Add("saldoCliente", typeof(string));
-            dtInfoCliente.Columns.Add("telefono1", typeof(string));
-            dtInfoCliente.Columns.Add("telefono2", typeof(string));
-            dtInfoCliente.Columns.Add("textoActEconomica", typeof(string));
-            dtInfoCliente.Columns.Add("textoDistrito", typeof(string));
-            dtInfoCliente.Columns.Add("textoEstadoCivil", typeof(string));
-            dtInfoCliente.Columns.Add("textoGenero", typeof(string));
-            dtInfoCliente.Columns.Add("textoProvincia", typeof(string));
-            dtInfoCliente.Columns.Add("textoRamo", typeof(string));
-            dtInfoCliente.Columns.Add("textoRamo1", typeof(string));
-            dtInfoCliente.Columns.Add("textoTratamiento", typeof(string));
-            dtInfoCliente.Columns.Add("tipoIdentificacion", typeof(string));    
-            
-            dsCliente.Tables.Add(dtInfoCliente);
-
-            if (esProduccion){ //Cuando es PRODUCCION
-
-                                
-            }else{ //Cuando es CALIDAD                
-
-                wsGetInfoCliente.ZWS_DATOS_CLIENTE_POSWEBService serv = new wsGetInfoCliente.ZWS_DATOS_CLIENTE_POSWEBService();
-                serv.Credentials = new System.Net.NetworkCredential(UsuarioSap, ContraSap);
-
-                wsGetInfoCliente.ZestNpCabCliente resultado = new wsGetInfoCliente.ZestNpCabCliente();
-
-                try {
-                    esCorrecto = false;
-                    contE = 0;
-                    do{
-                        try{
-                            serv.Timeout = -1; //CHUI Agregado para maximizar el tiempo de espera del servicio
-                            resultado = serv.ZfiDatosClientePos2023(idCliente, out salida);                       
-
-                            if (salida == 0){
-                                esCorrecto = true;
-                            }else{
-                                esCorrecto = false;
-                            }
-                        }catch (Exception ex){                       
-                            if (ex.Message.Contains(solicitudCancelada)){
-                                esCorrecto = false;
-                            }                                                                
-                        }
-                        contE++;
-                    } while (!esCorrecto && contE < contRepetir);
-
-                    DataRow drInfoCliente = dtInfoCliente.NewRow();
-
-                    drInfoCliente["actividadEconomica"] = resultado.ActividadEconomica;
-                    drInfoCliente["apellidos"] = resultado.Apellidos;
-                    drInfoCliente["bloqCredito"] = resultado.BloqCredito;
-                    drInfoCliente["calle"] = resultado.Calle;
-                    drInfoCliente["cedulaRuc"] = resultado.CedulaRuc;
-                    drInfoCliente["codEstadoCivil"] = resultado.CodEstadoCivil;
-                    drInfoCliente["codGenero"] = resultado.CodGenero;
-                    drInfoCliente["codigoSap"] = resultado.CodigoSap;
-                    drInfoCliente["codProvincia"] = resultado.CodProvincia;
-                    drInfoCliente["codRamo"] = resultado.CodRamo;
-                    drInfoCliente["codRamo1"] = resultado.CodRamo1;
-                    drInfoCliente["codTratamiento"] = resultado.CodTratamiento;
-                    drInfoCliente["correo"] = resultado.Correo;
-                    drInfoCliente["deuda"] = resultado.Deuda;
-                    drInfoCliente["distrito"] = resultado.Distrito;
-                    drInfoCliente["fecNacimiento"] = resultado.FecNacimiento;
-                    drInfoCliente["grpCtaCliente"] = resultado.GrpCtaCliente;
-                    drInfoCliente["grupoCliente"] = resultado.GrupoCliente;
-                    drInfoCliente["limiteCredito"] = resultado.LimiteCredito;
-                    drInfoCliente["nombres"] = resultado.Nombres;
-                    drInfoCliente["pais"] = resultado.Pais;
-                    drInfoCliente["poblacion"] = resultado.Poblacion;
-                    drInfoCliente["saldoCliente"] = resultado.SaldoCliente;
-                    drInfoCliente["telefono1"] = resultado.Telefono1;
-                    drInfoCliente["telefono2"] = resultado.Telefono2;
-                    drInfoCliente["textoActEconomica"] = resultado.TextoActEconomica;
-                    drInfoCliente["textoDistrito"] = resultado.TextoDistrito;
-                    drInfoCliente["textoEstadoCivil"] = resultado.TextoEstadoCivil;
-                    drInfoCliente["textoGenero"] = resultado.TextoGenero;
-                    drInfoCliente["textoProvincia"] = resultado.TextoProvincia;
-                    drInfoCliente["textoRamo"] = resultado.TextoRamo;
-                    drInfoCliente["textoRamo1"] = resultado.TextoRamo1;
-                    drInfoCliente["textoTratamiento"] = resultado.TextoTratamiento;
-                    drInfoCliente["tipoIdentificacion"] = resultado.TipoIdentificacion;
-
-                    dtInfoCliente.Rows.Add(drInfoCliente);
-                   
-                } catch (Exception erra) {
-                    error = erra.Message;
-                }
-            }
-                          
-            return dsCliente;
-        }
-
+        }      
         #endregion
-    
+        
     }
 }
