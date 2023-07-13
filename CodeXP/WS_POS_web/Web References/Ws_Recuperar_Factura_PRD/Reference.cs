@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace WS_POS_web.Ws_Get_Material_Price_PRD {
+namespace WS_POS_web.Ws_Recuperar_Factura_PRD {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -27,16 +27,16 @@ namespace WS_POS_web.Ws_Get_Material_Price_PRD {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="ZWS_SDNETPR0_BINDING", Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
-    public partial class ZWS_SDNETPR0 : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="ZWS_RECUPERAR_FACTURA_RESUL1_BINDING", Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
+    public partial class ZWS_RECUPERAR_FACTURA_RESUL1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback ZRfcSdnetpr0OperationCompleted;
+        private System.Threading.SendOrPostCallback ZRfcRecuperarFacturaResulOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public ZWS_SDNETPR0() {
-            this.Url = global::WS_POS_web.Properties.Settings.Default.WS_POS_web_Ws_Get_Material__Price_PRD_ZWS_SDNETPR0;
+        public ZWS_RECUPERAR_FACTURA_RESUL1() {
+            this.Url = global::WS_POS_web.Properties.Settings.Default.WS_POS_web_Ws_Recuperar_Factura_PRD_ZWS_RECUPERAR_FACTURA_RESUL1;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -71,52 +71,39 @@ namespace WS_POS_web.Ws_Get_Material_Price_PRD {
         }
         
         /// <remarks/>
-        public event ZRfcSdnetpr0CompletedEventHandler ZRfcSdnetpr0Completed;
+        public event ZRfcRecuperarFacturaResulCompletedEventHandler ZRfcRecuperarFacturaResulCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="urn:sap-com:document:sap:soap:functions:mc-style", ResponseNamespace="urn:sap-com:document:sap:soap:functions:mc-style", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlArrayAttribute("EBapireturnT", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        [return: System.Xml.Serialization.XmlArrayAttribute("ICabT", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Bapiret1[] ZRfcSdnetpr0([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string IKunnr, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] decimal IKwmeng, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string ILgort, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string IMatnr, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string ISpart, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string IVkbur, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string IVkorg, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string IVtweg, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out Zststockprice EStockpriceS, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out int ESubrc) {
-            object[] results = this.Invoke("ZRfcSdnetpr0", new object[] {
-                        IKunnr,
-                        IKwmeng,
-                        ILgort,
-                        IMatnr,
-                        ISpart,
-                        IVkbur,
-                        IVkorg,
-                        IVtweg});
-            EStockpriceS = ((Zststockprice)(results[1]));
-            ESubrc = ((int)(results[2]));
-            return ((Bapiret1[])(results[0]));
+        public ZwsCabeceraFactura[] ZRfcRecuperarFacturaResul([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string PVbeln, [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)] out ZwsItemsFactura[] IItemsT, [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)] out ZwsLote[] ILotesT, [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)] out ZwsSeries[] ISeriesT) {
+            object[] results = this.Invoke("ZRfcRecuperarFacturaResul", new object[] {
+                        PVbeln});
+            IItemsT = ((ZwsItemsFactura[])(results[1]));
+            ILotesT = ((ZwsLote[])(results[2]));
+            ISeriesT = ((ZwsSeries[])(results[3]));
+            return ((ZwsCabeceraFactura[])(results[0]));
         }
         
         /// <remarks/>
-        public void ZRfcSdnetpr0Async(string IKunnr, decimal IKwmeng, string ILgort, string IMatnr, string ISpart, string IVkbur, string IVkorg, string IVtweg) {
-            this.ZRfcSdnetpr0Async(IKunnr, IKwmeng, ILgort, IMatnr, ISpart, IVkbur, IVkorg, IVtweg, null);
+        public void ZRfcRecuperarFacturaResulAsync(string PVbeln) {
+            this.ZRfcRecuperarFacturaResulAsync(PVbeln, null);
         }
         
         /// <remarks/>
-        public void ZRfcSdnetpr0Async(string IKunnr, decimal IKwmeng, string ILgort, string IMatnr, string ISpart, string IVkbur, string IVkorg, string IVtweg, object userState) {
-            if ((this.ZRfcSdnetpr0OperationCompleted == null)) {
-                this.ZRfcSdnetpr0OperationCompleted = new System.Threading.SendOrPostCallback(this.OnZRfcSdnetpr0OperationCompleted);
+        public void ZRfcRecuperarFacturaResulAsync(string PVbeln, object userState) {
+            if ((this.ZRfcRecuperarFacturaResulOperationCompleted == null)) {
+                this.ZRfcRecuperarFacturaResulOperationCompleted = new System.Threading.SendOrPostCallback(this.OnZRfcRecuperarFacturaResulOperationCompleted);
             }
-            this.InvokeAsync("ZRfcSdnetpr0", new object[] {
-                        IKunnr,
-                        IKwmeng,
-                        ILgort,
-                        IMatnr,
-                        ISpart,
-                        IVkbur,
-                        IVkorg,
-                        IVtweg}, this.ZRfcSdnetpr0OperationCompleted, userState);
+            this.InvokeAsync("ZRfcRecuperarFacturaResul", new object[] {
+                        PVbeln}, this.ZRfcRecuperarFacturaResulOperationCompleted, userState);
         }
         
-        private void OnZRfcSdnetpr0OperationCompleted(object arg) {
-            if ((this.ZRfcSdnetpr0Completed != null)) {
+        private void OnZRfcRecuperarFacturaResulOperationCompleted(object arg) {
+            if ((this.ZRfcRecuperarFacturaResulCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ZRfcSdnetpr0Completed(this, new ZRfcSdnetpr0CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.ZRfcRecuperarFacturaResulCompleted(this, new ZRfcRecuperarFacturaResulCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -145,286 +132,51 @@ namespace WS_POS_web.Ws_Get_Material_Price_PRD {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
-    public partial class Bapiret1 {
+    public partial class ZwsCabeceraFactura {
         
-        private string typeField;
+        private string vbelnField;
         
-        private string idField;
-        
-        private string numberField;
-        
-        private string messageField;
-        
-        private string logNoField;
-        
-        private string logMsgNoField;
-        
-        private string messageV1Field;
-        
-        private string messageV2Field;
-        
-        private string messageV3Field;
-        
-        private string messageV4Field;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Number {
-            get {
-                return this.numberField;
-            }
-            set {
-                this.numberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string LogNo {
-            get {
-                return this.logNoField;
-            }
-            set {
-                this.logNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string LogMsgNo {
-            get {
-                return this.logMsgNoField;
-            }
-            set {
-                this.logMsgNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string MessageV1 {
-            get {
-                return this.messageV1Field;
-            }
-            set {
-                this.messageV1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string MessageV2 {
-            get {
-                return this.messageV2Field;
-            }
-            set {
-                this.messageV2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string MessageV3 {
-            get {
-                return this.messageV3Field;
-            }
-            set {
-                this.messageV3Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string MessageV4 {
-            get {
-                return this.messageV4Field;
-            }
-            set {
-                this.messageV4Field = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
-    public partial class Zststockprice {
-        
-        private string matnrField;
-        
-        private string arktxField;
-        
-        private decimal fkimgField;
-        
-        private string vrkmeField;
-        
-        private decimal netwrField;
-        
-        private decimal mwsbpField;
-        
-        private string waerkField;
-        
-        private string taxm1Field;
-        
-        private string pstyvField;
-        
-        private string werksField;
+        private string fkartField;
         
         private string vkorgField;
         
         private string vtwegField;
         
-        private string spartField;
-        
         private string vkburField;
         
-        private decimal labstField;
+        private string ztermField;
         
-        private string meinsField;
+        private string kunnrField;
+        
+        private string stcd1Field;
+        
+        private string name1Field;
+        
+        private string name2Field;
+        
+        private string fkdatField;
+        
+        private string erzetField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Matnr {
+        public string Vbeln {
             get {
-                return this.matnrField;
+                return this.vbelnField;
             }
             set {
-                this.matnrField = value;
+                this.vbelnField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Arktx {
+        public string Fkart {
             get {
-                return this.arktxField;
+                return this.fkartField;
             }
             set {
-                this.arktxField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public decimal Fkimg {
-            get {
-                return this.fkimgField;
-            }
-            set {
-                this.fkimgField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Vrkme {
-            get {
-                return this.vrkmeField;
-            }
-            set {
-                this.vrkmeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public decimal Netwr {
-            get {
-                return this.netwrField;
-            }
-            set {
-                this.netwrField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public decimal Mwsbp {
-            get {
-                return this.mwsbpField;
-            }
-            set {
-                this.mwsbpField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Waerk {
-            get {
-                return this.waerkField;
-            }
-            set {
-                this.waerkField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Taxm1 {
-            get {
-                return this.taxm1Field;
-            }
-            set {
-                this.taxm1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Pstyv {
-            get {
-                return this.pstyvField;
-            }
-            set {
-                this.pstyvField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Werks {
-            get {
-                return this.werksField;
-            }
-            set {
-                this.werksField = value;
+                this.fkartField = value;
             }
         }
         
@@ -452,17 +204,6 @@ namespace WS_POS_web.Ws_Get_Material_Price_PRD {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Spart {
-            get {
-                return this.spartField;
-            }
-            set {
-                this.spartField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string Vkbur {
             get {
                 return this.vkburField;
@@ -474,12 +215,306 @@ namespace WS_POS_web.Ws_Get_Material_Price_PRD {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public decimal Labst {
+        public string Zterm {
             get {
-                return this.labstField;
+                return this.ztermField;
             }
             set {
-                this.labstField = value;
+                this.ztermField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Kunnr {
+            get {
+                return this.kunnrField;
+            }
+            set {
+                this.kunnrField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Stcd1 {
+            get {
+                return this.stcd1Field;
+            }
+            set {
+                this.stcd1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Name1 {
+            get {
+                return this.name1Field;
+            }
+            set {
+                this.name1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Name2 {
+            get {
+                return this.name2Field;
+            }
+            set {
+                this.name2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Fkdat {
+            get {
+                return this.fkdatField;
+            }
+            set {
+                this.fkdatField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Erzet {
+            get {
+                return this.erzetField;
+            }
+            set {
+                this.erzetField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
+    public partial class ZwsSeries {
+        
+        private string matnrField;
+        
+        private string sernrField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Matnr {
+            get {
+                return this.matnrField;
+            }
+            set {
+                this.matnrField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Sernr {
+            get {
+                return this.sernrField;
+            }
+            set {
+                this.sernrField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
+    public partial class ZwsLote {
+        
+        private string matnrField;
+        
+        private string chargField;
+        
+        private decimal fkimgField;
+        
+        private string patnrField;
+        
+        private string comboField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Matnr {
+            get {
+                return this.matnrField;
+            }
+            set {
+                this.matnrField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Charg {
+            get {
+                return this.chargField;
+            }
+            set {
+                this.chargField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public decimal Fkimg {
+            get {
+                return this.fkimgField;
+            }
+            set {
+                this.fkimgField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Patnr {
+            get {
+                return this.patnrField;
+            }
+            set {
+                this.patnrField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Combo {
+            get {
+                return this.comboField;
+            }
+            set {
+                this.comboField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
+    public partial class ZwsItemsFactura {
+        
+        private string matnrField;
+        
+        private string maktxField;
+        
+        private decimal fkimgField;
+        
+        private decimal netwrField;
+        
+        private decimal mwsbpField;
+        
+        private string indlsField;
+        
+        private string werksField;
+        
+        private string lgortField;
+        
+        private string meinsField;
+        
+        private string matnpField;
+        
+        private string posnrField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Matnr {
+            get {
+                return this.matnrField;
+            }
+            set {
+                this.matnrField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Maktx {
+            get {
+                return this.maktxField;
+            }
+            set {
+                this.maktxField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public decimal Fkimg {
+            get {
+                return this.fkimgField;
+            }
+            set {
+                this.fkimgField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public decimal Netwr {
+            get {
+                return this.netwrField;
+            }
+            set {
+                this.netwrField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public decimal Mwsbp {
+            get {
+                return this.mwsbpField;
+            }
+            set {
+                this.mwsbpField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Indls {
+            get {
+                return this.indlsField;
+            }
+            set {
+                this.indlsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Werks {
+            get {
+                return this.werksField;
+            }
+            set {
+                this.werksField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Lgort {
+            get {
+                return this.lgortField;
+            }
+            set {
+                this.lgortField = value;
             }
         }
         
@@ -493,46 +528,76 @@ namespace WS_POS_web.Ws_Get_Material_Price_PRD {
                 this.meinsField = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Matnp {
+            get {
+                return this.matnpField;
+            }
+            set {
+                this.matnpField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Posnr {
+            get {
+                return this.posnrField;
+            }
+            set {
+                this.posnrField = value;
+            }
+        }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void ZRfcSdnetpr0CompletedEventHandler(object sender, ZRfcSdnetpr0CompletedEventArgs e);
+    public delegate void ZRfcRecuperarFacturaResulCompletedEventHandler(object sender, ZRfcRecuperarFacturaResulCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ZRfcSdnetpr0CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ZRfcRecuperarFacturaResulCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal ZRfcSdnetpr0CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal ZRfcRecuperarFacturaResulCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public Bapiret1[] Result {
+        public ZwsCabeceraFactura[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Bapiret1[])(this.results[0]));
+                return ((ZwsCabeceraFactura[])(this.results[0]));
             }
         }
         
         /// <remarks/>
-        public Zststockprice EStockpriceS {
+        public ZwsItemsFactura[] IItemsT {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Zststockprice)(this.results[1]));
+                return ((ZwsItemsFactura[])(this.results[1]));
             }
         }
         
         /// <remarks/>
-        public int ESubrc {
+        public ZwsLote[] ILotesT {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((int)(this.results[2]));
+                return ((ZwsLote[])(this.results[2]));
+            }
+        }
+        
+        /// <remarks/>
+        public ZwsSeries[] ISeriesT {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ZwsSeries[])(this.results[3]));
             }
         }
     }
